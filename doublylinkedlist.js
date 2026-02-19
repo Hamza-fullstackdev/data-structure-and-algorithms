@@ -64,6 +64,28 @@ class DoublyLL {
     }
   }
 
+  deleteLL(data) {
+    if (!this.head) return;
+
+    let temp = this.head;
+
+    while (temp !== null) {
+      if (temp.data == data) {
+        if (temp.prev) {
+          temp.prev.next = temp.next;
+        } else {
+          this.head = temp.next;
+        }
+
+        if (temp.next) {
+          temp.next.prev = temp.prev;
+        }
+        return;
+      }
+      temp = temp.next;
+    }
+  }
+
   printLL() {
     let temp = this.head;
 
@@ -81,4 +103,5 @@ l1.insertAtEnd(30);
 l1.insertAtBeg(5);
 l1.insertAtMidd(80, 20);
 l1.insertAtMidd(50, 10);
+l1.deleteLL(5);
 l1.printLL();
