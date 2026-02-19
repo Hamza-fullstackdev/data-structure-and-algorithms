@@ -33,19 +33,18 @@ class SinglyLinkedlist {
     this.head = newNode;
   }
 
-  insertAtMidd(valueToInsert, valueAfterInsert) {
+  insertAtMidd(valueToInsert, ValueAfterInsert) {
+    const newNode = new Node(valueToInsert);
     let temp = this.head;
 
-    while (temp !== null) {
-      if (temp.data === valueAfterInsert) {
-        const newNode = new Node(valueToInsert, temp.next);
+    while (temp.next !== null) {
+      if (temp.data == ValueAfterInsert) {
+        newNode.next = temp.next;
         temp.next = newNode;
-        return;
       }
       temp = temp.next;
     }
   }
-
   printLL() {
     let temp = this.head;
     while (temp !== null) {
